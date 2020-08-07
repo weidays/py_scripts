@@ -1,8 +1,12 @@
+<details>
+<summary>项目重建了，记录一下历史数据</summary>
 写在前面，本项目重建了，由于之前教别人更新fork的项目，导致本项目被提交了一些pull requests，而且不知怎么的还变成了Contributor，非常无语，经过思虑再三，决定删除重建。重建后，之前的star和fork全部重置，如果你之前已经fork了，那么之间的关联自动解除，即在你的项目页面不会再展示“Fork from [Arronlong/py_scripts](https://github.com/Arronlong/py_scripts)”。好吧，把之前的项目数据记录一下：
 
 ![images-20200709171538](https://cdn.jsdelivr.net/gh/Arronlong/cdn/blogImg/20200709171538.png)
 
 ![image-20200709172617402](https://cdn.jsdelivr.net/gh/Arronlong/cdn/blogImg/20200709183623.png)
+
+</details>
 
 ---
 
@@ -11,7 +15,7 @@ python脚本集，支持selenium，基于[SeleniumBase](https://github.com/selen
 当前功能：
 
 1. [TextNow保号](<https://github.com/Arronlong/py_scripts/tree/master/scripts/textnow>)
-2. [HostLoc赚积分](<https://github.com/Arronlong/py_scripts/tree/master/scripts/hostloc>)
+2. [HostLoc赚积分【基于Cookie】](<https://github.com/Arronlong/py_scripts/tree/master/scripts/hostloc>)
 3. [天翼云盘签到+抽奖](<https://github.com/Arronlong/py_scripts/tree/master/scripts/C189>)
 
 功能对应的参数，请点击后自行查看。
