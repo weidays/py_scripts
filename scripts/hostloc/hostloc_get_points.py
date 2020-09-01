@@ -7,7 +7,7 @@ import random
 
 # 登录
 def login(cookie,number_c):
-    url = 'https://www.hostloc.com/member.php?mod=logging&action=login&formhash=eba1bb55'
+    url = 'https://www.hostloc.com/member.php?mod=logging&action=login'
     res = requests.get(url, cookies=cookie)
     res.encoding = 'utf-8'
     #print(res.text)
@@ -21,7 +21,7 @@ def login(cookie,number_c):
 
 # 抓取用户设置页面的积分
 def check_point(cookie, number_c):
-    url = 'https://www.hostloc.com/member.php?mod=logging&action=login&formhash=eba1bb55'
+    url = 'https://www.hostloc.com/member.php?mod=logging&action=login'
     res = requests.get(url, cookies=cookie)
     res.encoding = 'utf-8'
     #print(res.text)
@@ -61,6 +61,7 @@ def get_points(cookie, number_c):
 if __name__ == "__main__":
     cookie_saltkey = os.environ["HOSTLOC_COOKIE_SALTKEY"]
     cookie_auth = os.environ["HOSTLOC_COOKIE_AUTH"]
+    notify_url=None
     try:
       notify_url = os.environ["NOTIFY_URL"]
     except Exception as e:
