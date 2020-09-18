@@ -1,4 +1,4 @@
-#-*-coding:utf-8-*-
+# -*- coding: utf-8 -*-  
 import requests
 import os
 import re
@@ -8,9 +8,12 @@ import random
 # 登录
 def login(cookie,number_c):
     url = 'https://www.hostloc.com/member.php?mod=logging&action=login'
-    res = requests.get(url, cookies=cookie)
+    headers = {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41'
+    }
+    res = requests.get(url, cookies=cookie, headers=headers)
     res.encoding = 'utf-8'
-    #print(res.text)
+    # print(res.text)
     if u'欢迎您回来' in res.text:
         point = re.findall(u"积分: (\d+)", res.text)
         print(u"第", number_c, "个帐户登录成功！当前积分：%s" % point)
@@ -22,7 +25,10 @@ def login(cookie,number_c):
 # 抓取用户设置页面的积分
 def check_point(cookie, number_c):
     url = 'https://www.hostloc.com/member.php?mod=logging&action=login'
-    res = requests.get(url, cookies=cookie)
+    headers = {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41'
+    }
+    res = requests.get(url, cookies=cookie, headers=headers)
     res.encoding = 'utf-8'
     #print(res.text)
     if u'欢迎您回来' in res.text:
@@ -46,12 +52,15 @@ def randomly_gen_uspace_url():
 
 # 依次访问随机生成的用户空间链接获取积分
 def get_points(cookie, number_c):
+    headers = {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41'
+    }
     url_list = randomly_gen_uspace_url()
     # 依次访问用户空间链接获取积分，出现错误时不中断程序继续尝试访问下一个链接
     for i in range(len(url_list)):
         url = url_list[i]
         try:
-            requests.get(url, cookies=cookie)
+            requests.get(url, cookies=cookie, headers=headers)
             print("第", i + 1, "个用户空间链接访问成功")
             time.sleep(4)  # 每访问一个链接后休眠4秒，以避免触发论坛的防cc机制
         except Exception as e:
